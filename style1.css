@@ -1,0 +1,18 @@
+body {
+    background-color: #140f1a;
+}
+h1 {
+    font-size: 42px;
+    text-transform: uppercase;
+  }
+  .header {
+    margin-bottom: 40px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+.image {
+    display: flex;
+    gap: 16px;
+  }
