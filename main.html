@@ -1,16 +1,65 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="style1.css">
-    </head>
-    <body>
-        <div class="container">
-            <topHeader class="header">
-                <div class="image">
-                    <img height="60px" width="60px" src="image/example.png" alt="wtf why is the image not showing">
-                    <h1>job recruitment portal</h1>
-                </div>
-            </topHeader>
-        </div>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Order System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Restaurant Menu</h1>
+    <div id="menu"></div>
+    <h2>Order Summary</h2>
+    <div id="order-summary" class="order-summary"></div>
+    <h3>Total: $<span id="total">0.00</span></h3>
+
+    <script>
+        const menuItems = [
+            { name: "Burger", price: 4.99 },
+            {name:"Combo #1: 2 Burgers", price: 9.99 },
+            { name: "Pizza", price: 6.99 },
+            { name: "Combo #2: 1 Burger and 1 Pizza", price: 14.99 },
+            { name: "Pasta",   price: 8.49 },
+            { name: "Salad",   price: 2.99 },
+            { name: "Soda",    price: 0.79 },
+            {name: "Ice Cream",price: 2.99 }
+        ];
+
+        const menuDiv = document.getElementById("menu");
+        const orderSummary = document.getElementById("order-summary");
+        const totalSpan = document.getElementById("total");
+        let order = {};
+
+        function updateOrder() {
+            orderSummary.innerHTML = "";
+            let total = 0;
+            for (let item in order) {
+                let itemTotal = order[item].quantity * order[item].price;
+                total += itemTotal;
+                orderSummary.innerHTML += `<p>${order[item].quantity} x ${item} - $${itemTotal.toFixed(2)}</p>`;
+            }
+            totalSpan.innerText = total.toFixed(2);
+        }
+
+        menuItems.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("menu-item");
+            div.innerHTML = `
+                    <span>${item.name} - $${item.price.toFixed(2)}</span>
+                    <button onclick="addToOrder('${item.name}', ${item.price})">Add</button>
+                `;
+            menuDiv.appendChild(div);
+        });
+
+        function addToOrder(name, price) {
+            if (!order[name]) {
+                order[name] = { quantity: 1, price };
+            } else {
+                order[name].quantity++;
+            }
+            updateOrder();
+        }
+    </script>
+</body>
 </html>
+
