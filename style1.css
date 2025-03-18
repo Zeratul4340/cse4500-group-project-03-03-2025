@@ -1,18 +1,17 @@
-body {
-    background-color: #140f1a;
+<body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
 }
-h1 {
-    font-size: 42px;
-    text-transform: uppercase;
-  }
-  .header {
-    margin-bottom: 40px;
-  
+.menu-item {
     display: flex;
-    align-items: center;
     justify-content: space-between;
-  }
-.image {
-    display: flex;
-    gap: 16px;
-  }
+    width: 50%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.order-summary {
+    margin-top: 20px;
+}
