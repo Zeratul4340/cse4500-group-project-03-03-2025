@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Order System</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style1.css">
 </head>
-<body>
-    <h1>Restaurant Menu</h1>
-    <div id="menu"></div>
-    <h2>Order Summary</h2>
-    <div id="order-summary" class="order-summary"></div>
-    <h3>Total: $<span id="total">0.00</span></h3>
 
+<body>
+    <div class="fixedDiv">
+        <h1 class="restaurantMenuHeader">Restaurant Menu</h1>
+        <div id="menu"></div>
+        <h2 class="orderSummaryHeader">Order Summary</h2>
+        <div id="order-summary" class="order-summary"></div>
+        <h3>Total: $<span id="total">0.00</span></h3>
+        <br>
+    </div>
     <script>
         const menuItems = [
             { name: "Burger", price: 4.99 },
-            {name:"Combo #1: 2 Burgers", price: 9.99 },
+            { name: "Combo #1: 2 Burgers", price: 9.99 },
             { name: "Pizza", price: 6.99 },
             { name: "Combo #2: 1 Burger and 1 Pizza", price: 14.99 },
-            { name: "Pasta",   price: 8.49 },
-            { name: "Salad",   price: 2.99 },
-            { name: "Soda",    price: 0.79 },
-            {name: "Ice Cream",price: 2.99 }
+            { name: "Pasta", price: 8.49 },
+            { name: "Salad", price: 2.99 },
+            { name: "Soda", price: 0.79 },
+            { name: "Ice Cream", price: 2.99 }
         ];
 
         const menuDiv = document.getElementById("menu");
@@ -46,7 +50,7 @@
             div.classList.add("menu-item");
             div.innerHTML = `
                     <span>${item.name} - $${item.price.toFixed(2)}</span>
-                    <button onclick="addToOrder('${item.name}', ${item.price})">Add</button>
+                    <button class="addToOrderButton" onclick="addToOrder('${item.name}', ${item.price})">Add</button>
                 `;
             menuDiv.appendChild(div);
         });
@@ -61,5 +65,5 @@
         }
     </script>
 </body>
-</html>
 
+</html>
