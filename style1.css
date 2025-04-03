@@ -1,17 +1,72 @@
-<body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: #f4f4f4;
+* {
+    margin: 0;
+    padding: 0;
 }
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: #c4c4c4;
+    background-color: #242424;
+}
+
 .menu-item {
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    align-items: center;
+    color: #c4c4c4;
+    width: 90%;
     margin: 10px auto;
     padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 2px solid #646464;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
 }
+
+.menu-item:hover {
+    color: #f4f4f4;
+    border: 2px solid #848484;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+}
+
+.restaurantMenuHeader {
+    margin: 16px 0px;
+    padding: 16px 0px;
+    background: linear-gradient(100deg, #323c4d, #242424);
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #545454, #323c4d) 1;
+}
+
+.fixedDiv {
+    position: relative;
+    top: 32px;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width: 80%;
+    background: #343434;
+    border: 2px solid #646464;
+    border-radius: 20px;
+    box-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+}
+
+.orderSummaryHeader {
+    margin: 8px 0px;
+}
+
 .order-summary {
-    margin-top: 20px;
+    margin: 16px 0px;
+    padding: 16px 0px;
+    background: linear-gradient(100deg, #323c4d, #242424);
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-image: linear-gradient(to right, #545454, #323c4d) 1;
+}
+
+.addToOrderButton {
+    color: #c4c4c4;
+    background-color: #323c4d;
+    border-radius: 0.4em;
+    padding: 0.2em 0.5em;
 }
