@@ -1,9 +1,12 @@
 // We can add more menu menuItems, prices, and pics here
 const menuItems = [
-    { name: "Burger", price: 5.99, image: "burger.jpg" },
-    { name: "Fries", price: 2.99, image: "fries.jpg" },
-    { name: "Hotdog", price: 3.49, image: "hotdog.jpg" },
-    { name: "Drink", price: 1.99, image: "drink.jpg" }
+    { name: "Big Ultimate", price: 6.49, image: "bigult.png" },
+    { name: "The Crowd Pleaser", price: 4.59, image: "burger.jpg" },
+    { name: "Fries (medium)", price: 2.99, image: "fries.jpg" },
+    { name: "Fries (large)", price: 3.49, image: "fries.jpg" },
+    { name: "Hotdog", price: 2.99, image: "hotdog.jpg" },
+    { name: "Drink (medium)", price: 1.99, image: "drink.jpg" },
+    { name: "Drink (large)", price: 2.49, image: "drink.jpg" }
 ];
 
 let cart = [];
@@ -35,5 +38,12 @@ $(document).ready(function () {
     $(document).on(`click`, `.formButton`, function () {
         const index = $(this).data(`index`);
         updateCart(menuItems[index]);
+    });
+
+    $('#clear-cart').on('click', function () {
+        cart = [];
+        total = 0;
+        $('#cart-list').empty();
+        $('#total').text('0.00');
     });
 });
