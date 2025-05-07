@@ -10,7 +10,8 @@ const menuItems = [
 ];
 
 let cart = [];
-let total = 0;
+let subtotal = 0;
+let tax_rate = 0.0875;
 
 function renderMenu() {
     menuItems.forEach((item, index) => {
@@ -28,9 +29,15 @@ function renderMenu() {
 
 function updateCart(item) {
     cart.push(item);
-    total += item.price;
-    $(`#cart-list`).append(`<li>${item.name} - $${item.price.toFixed(2)}</li>`);
-    $(`#total`).text(total.toFixed(2));
+    subtotal += item.price;
+
+    const tax = subtotal * tax_rate;
+    const total = subtotal + tax;
+
+    $('#cart-list').append(`<li>${item.name} - $${item.price.toFixed(2)}</li>`);
+    $('#subtotal').text(subtotal.toFixed(2));
+    $('#tax').text(tax.toFixed(2));
+    $('#total').text(total.toFixed(2));
 }
 
 $(document).ready(function () {
@@ -43,8 +50,10 @@ $(document).ready(function () {
 
     $('#clear-cart').on('click', function () {
         cart = [];
-        total = 0;
+        subtotal = 0;
         $('#cart-list').empty();
+        $('#subtotal').text('0.00');
+        $('#tax').text('0.00');
         $('#total').text('0.00');
     });
 });
