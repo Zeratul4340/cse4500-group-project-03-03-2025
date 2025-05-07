@@ -73,7 +73,17 @@ $(document).ready(function () {
         const tax = subtotal * tax_rate;
         const total = subtotal + tax;
     
-        alert(`Thank you for your order!\n\nSubtotal: $${subtotal.toFixed(2)}\nTax: $${tax.toFixed(2)}\nTotal: $${total.toFixed(2)}\n\nPlease proceed to the counter or payment screen.`);
+        // Create a list of items ordered
+        const itemSummary = cart.map(item => `${item.name} - $${item.price.toFixed(2)}`).join('\n');
+
+        alert(
+            `Thank you for your order!\n\n` +
+            `Items Ordered:\n${itemSummary}\n\n` +
+            `Subtotal: $${subtotal.toFixed(2)}\n` +
+            `Tax: $${tax.toFixed(2)}\n` +
+            `Total: $${total.toFixed(2)}\n\n` +
+            `Please proceed to the counter or payment screen.`
+        );
         
         // Reset the cart
         cart = [];
@@ -87,3 +97,4 @@ $(document).ready(function () {
         $('#checkout').prop('disabled', true);
     });    
 });
+
