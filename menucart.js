@@ -31,13 +31,16 @@ function updateCart(item) {
     cart.push(item);
     subtotal += item.price;
 
-    const tax = subtotal * tax_rate;
-    const total = subtotal + tax;
+    let tax = subtotal * tax_rate;
+    let total = subtotal + tax;
 
     $('#cart-list').append(`<li>${item.name} - $${item.price.toFixed(2)}</li>`);
     $('#subtotal').text(subtotal.toFixed(2));
     $('#tax').text(tax.toFixed(2));
     $('#total').text(total.toFixed(2));
+
+    // Enable checkout button
+    $('#checkout').prop('disabled', false);
 }
 
 $(document).ready(function () {
@@ -55,5 +58,32 @@ $(document).ready(function () {
         $('#subtotal').text('0.00');
         $('#tax').text('0.00');
         $('#total').text('0.00');
+
+        // Disable checkout button
+        $('#checkout').prop('disabled', true);
     });
+
+    $('#checkout').on('click', function () {
+
+        if (cart.length === 0) {
+            alert("Your cart is empty!");
+            return;
+        }
+
+        const tax = subtotal * tax_rate;
+        const total = subtotal + tax;
+    
+        alert(`Thank you for your order!\n\nSubtotal: $${subtotal.toFixed(2)}\nTax: $${tax.toFixed(2)}\nTotal: $${total.toFixed(2)}\n\nPlease proceed to the counter or payment screen.`);
+        
+        // Reset the cart
+        cart = [];
+        subtotal = 0;
+        $('#cart-list').empty();
+        $('#subtotal').text('0.00');
+        $('#tax').text('0.00');
+        $('#total').text('0.00');
+
+        // Disable checkout button
+        $('#checkout').prop('disabled', true);
+    });    
 });
