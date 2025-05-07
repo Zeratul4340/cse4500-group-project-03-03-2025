@@ -78,7 +78,7 @@ $(document).ready(function () {
 
         alert(
             `Thank you for your order!\n\n` +
-            `Items Ordered:\n${itemSummary}\n\n` +
+            `Items Ordered:\n\n${itemSummary}\n\n` +
             `Subtotal: $${subtotal.toFixed(2)}\n` +
             `Tax: $${tax.toFixed(2)}\n` +
             `Total: $${total.toFixed(2)}\n\n` +
